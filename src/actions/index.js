@@ -18,6 +18,18 @@ const ticketsError = (error) => {
 	}
 };
 
+const sortByCheapest = () => {
+	return {
+		type: 'SORT_BY_CHEAPEST'
+	}
+}
+
+const sortByFastest = () => {
+	return {
+		type: 'SORT_BY_FASTEST'
+	}
+}
+
 const fetchTickets = (service, dispatch) => {
 	ticketsRequested();
 	service
@@ -27,4 +39,8 @@ const fetchTickets = (service, dispatch) => {
 		.catch(err => dispatch(ticketsError(err)))
 }
 
-export { fetchTickets }
+export { 
+	fetchTickets,
+	sortByCheapest,
+	sortByFastest
+ }
