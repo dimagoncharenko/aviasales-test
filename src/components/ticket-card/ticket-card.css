@@ -1,0 +1,40 @@
+.ticket-card {
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+.ticket-card__head {
+	margin: 0 0 20px;
+}
+
+.ticket-card__row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	gap: 10px;
+	margin: 0 0 10px;
+}
+
+.ticket-card__price {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1;
+	color: #2196f3;
+}
+
+.ticket-card__info {
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.5;
+	text-transform: uppercase;
+	letter-spacing: 0.0416em;
+	color: #a0b0b9;
+}
+
+.ticket-card__value {
+	font-size: 14px;
+	line-height: 1.5;
+	font-weight: 600;
+	color: #4a4a4a;
+}
