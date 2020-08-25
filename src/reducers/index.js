@@ -2,8 +2,29 @@ const initialState = {
 	tickets: [],
 	error: false,
 	loading: true,
-	filtering: false
+	filter: {
+		all: true,
+		noStops: true,
+		oneStops: true,
+		twoStops: true,
+		threeStops: true
+	}
 };
+
+const setFilterAllValue =(filter) => {
+	let needValue;
+	for (const [key, value] of Object.entries(filter)) {
+		if (key === 'all') continue;
+		if (value) {
+			needValue = true;
+		} else {
+			needValue = false;
+			break;
+		}
+	}
+	return needValue;
+}
+
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -46,9 +67,36 @@ const reducer = (state = initialState, action) => {
 				...state,
 				tickets: fastestTickets,
 			}
-		
-			default:
-				return state
+
+		case 'FILTER_BY_STOPS':
+			let filter = {};
+			if (action.payload === 'all') {
+				if (state.filter.all) {
+					for (const key of Object.keys(state.filter)) {
+						filter[key] = false;
+					}
+				} else {
+					for (const key of Object.keys(state.filter)) {
+						filter[key] = true;
+					}
+				}
+			} else {
+				filter = {
+					...state.filter,
+					[action.payload]: !state.filter[action.payload]
+				}
+			}
+
+			filter.all = setFilterAllValue(filter);
+
+			return {
+				...state,
+				filter
+			}
+
+
+		default:
+			return state
 	}
 };
 

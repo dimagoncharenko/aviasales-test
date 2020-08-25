@@ -1,13 +1,19 @@
 import React from 'react';
-import {  useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import TicketCard from '../ticket-card/';
 import './tickets-list.css';
 import Spinner from '../spinner';
+import { transfromStops } from '../../utils';
 
 const TicketsList = () => {
 	const TICKET_COUNT = 5;
-	const {tickets, loading} = useSelector(state => state);
+	const { tickets, loading, filter } = useSelector(state => state);
+	const visibleItems = tickets.filter((ticket) => {
+		let { stops } = ticket.segments[0];
+		stops = transfromStops(stops.length);
+		return filter[stops]
+	});
 
 	if (loading) {
 		return <Spinner />
@@ -16,10 +22,9 @@ const TicketsList = () => {
 	return (
 		<ul className="tickets-list">
 			{
-				tickets.map((ticket, idx) => {
+				visibleItems.map((ticket, idx) => {
 					if (idx < TICKET_COUNT) {
-						console.log(ticket)
-						return <li key={idx}> <TicketCard ticketData={ticket} /> </li>	
+						return <li key={idx}> <TicketCard ticketData={ticket} /> </li>
 					} else {
 						return false
 					}

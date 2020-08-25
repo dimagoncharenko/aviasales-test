@@ -23,10 +23,6 @@ img {
 	gap: 0 20px
 }
 
-.app__sidebar {
-	border: 1px solid royalblue;
-}
-
 .container {
 	width: 100%;
 	max-width: 784px;

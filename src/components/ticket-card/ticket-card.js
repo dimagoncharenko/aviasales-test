@@ -10,6 +10,7 @@ const TicketCard = ({ ticketData }) => {
 		const { date, destination, duration, origin, stops } = segment;
 		const time = convertDate(date);
 		const arrivalTime = convertDate(addMinutes(date, duration));
+		
 		return (
 			<div key={idx} className="ticket-card__row">
 				<div className="ticket-card__column">

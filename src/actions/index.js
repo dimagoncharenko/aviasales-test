@@ -30,6 +30,13 @@ const sortByFastest = () => {
 	}
 }
 
+const filterByStops = (value) => {
+	return {
+		type: 'FILTER_BY_STOPS',
+		payload: value
+	}
+}
+
 const fetchTickets = (service, dispatch) => {
 	ticketsRequested();
 	service
@@ -42,5 +49,6 @@ const fetchTickets = (service, dispatch) => {
 export { 
 	fetchTickets,
 	sortByCheapest,
-	sortByFastest
+	sortByFastest,
+	filterByStops
  }

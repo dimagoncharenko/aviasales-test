@@ -5,6 +5,7 @@ import { fetchTickets } from '../../actions';
 import AviaServiceContext from '../avia-service-context';
 import Sorting from '../sorting';
 import ErrorIndicator from '../error-indicator';
+import Filter from '../filter';
 
 import './app.css';
 
@@ -26,7 +27,7 @@ const App = () => {
 			<div className="container">
 				<div className="app__row">
 					<div className="app__sidebar">
-						Sidebar
+						<Filter />
 					</div>
 					<div className="app__body">
 						<Sorting />
