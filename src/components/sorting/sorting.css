@@ -1,0 +1,26 @@
+.sorting {
+	display: flex;
+	align-items: center;
+	margin: 0 0 16px;
+}
+
+.sorting button {
+	flex-grow: 1;
+	padding: 15px 10px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 1.67;
+	letter-spacing: 0.0416em;
+	text-transform: uppercase;
+	background: #ffffff;
+	border: 1px solid #dfe5ec;
+	border-radius: 5px;
+	color: #4A4A4A;
+	cursor: pointer;
+	outline: none;
+}
+
+.sorting button.active {
+	background: #2196F3;
+	color: #FFFFFF;
+}

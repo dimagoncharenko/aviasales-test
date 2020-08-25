@@ -7,6 +7,13 @@
 
 .ticket-card__head {
 	margin: 0 0 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ticket-card__logo {
+	margin-right: 50px;
 }
 
 .ticket-card__row {

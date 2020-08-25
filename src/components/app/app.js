@@ -6,6 +6,7 @@ import AviaServiceContext from '../avia-service-context';
 import Sorting from '../sorting';
 import ErrorIndicator from '../error-indicator';
 import Filter from '../filter';
+import Logo from '../logo';
 
 import './app.css';
 
@@ -25,6 +26,7 @@ const App = () => {
 	return (
 		<div className="app">
 			<div className="container">
+				<Logo />
 				<div className="app__row">
 					<div className="app__sidebar">
 						<Filter />

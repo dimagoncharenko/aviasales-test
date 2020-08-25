@@ -16,11 +16,24 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+.app {
+	padding: 50px 0 0;
+}
 
 .app__row {
 	display: grid;
 	grid-template-columns: 232px 1fr;
-	gap: 0 20px
+	gap: 20px;
+}
+
+@media (max-width: 768px) {
+	.app__row {
+		grid-template-columns: 1fr;
+	}
+}
+
+.app__body {
+	flex-grow: 1;
 }
 
 .container {

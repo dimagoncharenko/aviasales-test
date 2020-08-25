@@ -1,0 +1,10 @@
+.logo {
+	margin: 0 0 50px;
+	text-align: center;
+}
+
+.logo__img {
+	box-shadow: 0px 1px 11px rgba(55, 104, 142, 0.3);
+	vertical-align: middle;
+	border-radius: 50%;
+}

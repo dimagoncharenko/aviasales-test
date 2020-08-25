@@ -1,10 +1,10 @@
 import React from 'react';
-import { convertDate, convertMinutes, addMinutes } from '../../utils'
+import { convertDate, convertMinutes, addMinutes, setStopsText } from '../../utils'
 
 import './ticket-card.css';
 
 const TicketCard = ({ ticketData }) => {
-	const { price, segments } = ticketData;
+	const { price, segments, carrier } = ticketData;
 
 	const renderSegment = (segment, idx) => {
 		const { date, destination, duration, origin, stops } = segment;
@@ -22,7 +22,7 @@ const TicketCard = ({ ticketData }) => {
 					<div className="ticket-card__value">{convertMinutes(duration)}</div>
 				</div>
 				<div className="ticket-card__column">
-					<div className="ticket-card__info">{stops.length} пересадки</div>
+					<div className="ticket-card__info">{setStopsText(stops.length)}</div>
 					<div className="ticket-card__value">{stops.join(', ')}</div>
 				</div>
 			</div>
@@ -33,7 +33,9 @@ const TicketCard = ({ ticketData }) => {
 		<div className="ticket-card">
 			<div className="ticket-card__head">
 				<div className="ticket-card__price">{price.toLocaleString()} Р</div>
-				<div className="ticket-card__logo"></div>
+				<div className="ticket-card__logo">
+					<img src={`//pics.avs.io/99/36/${carrier}.png`} alt=""/>
+				</div>
 			</div>
 			<div className="ticket-card__body">
 				{segments.map(renderSegment)}

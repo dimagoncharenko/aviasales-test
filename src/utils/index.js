@@ -32,9 +32,30 @@ const transfromStops = (count) => {
 	}
 };
 
+const setStopsText = (cout) => {
+	switch (cout) {
+		case 0:
+			return '0 пересадок'
+		
+		case 1:
+			return '1 пересадка'
+		
+		
+		case 2:
+			return '2 пересадки'
+		
+		case 3:
+			return '3 пересадки'
+		
+		default:
+			return `${cout} пересадки`;
+	}
+}
+
 export {
 	convertDate,
 	convertMinutes,
 	addMinutes,
-	transfromStops
+	transfromStops,
+	setStopsText
 }

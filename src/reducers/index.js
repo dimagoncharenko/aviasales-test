@@ -2,6 +2,10 @@ const initialState = {
 	tickets: [],
 	error: false,
 	loading: true,
+	sorting: {
+		fastest: false,
+		cheapest: false
+	},
 	filter: {
 		all: true,
 		noStops: true,
@@ -56,6 +60,10 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				tickets: state.tickets.slice().sort((a, b) => a.price - b.price),
+				sorting: {
+					fastest: false,
+					cheapest: true
+				}
 			}
 
 		case 'SORT_BY_FASTEST':
@@ -66,6 +74,10 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				tickets: fastestTickets,
+				sorting: {
+					fastest: true,
+					cheapest: false
+				}
 			}
 
 		case 'FILTER_BY_STOPS':
