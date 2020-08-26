@@ -17,7 +17,7 @@ const addMinutes = (leaveTime, duration) => {
 	return new Date(data.getTime() + duration * 60000);
 };
 
-const transfromStops = (count) => {
+const transformStops = (count) => {
 	switch (count) {
 		case 0:
 			return 'noStops'
@@ -56,6 +56,6 @@ export {
 	convertDate,
 	convertMinutes,
 	addMinutes,
-	transfromStops,
+	transformStops,
 	setStopsText
 }

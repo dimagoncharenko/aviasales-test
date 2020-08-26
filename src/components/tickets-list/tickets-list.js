@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux'
 import TicketCard from '../ticket-card/';
 import './tickets-list.css';
 import Spinner from '../spinner';
-import { transfromStops } from '../../utils';
+import { transformStops } from '../../utils';
 
 const TicketsList = () => {
 	const TICKET_COUNT = 5;
 	const { tickets, loading, filter } = useSelector(state => state);
 	const visibleItems = tickets.filter((ticket) => {
-		let { stops } = ticket.segments[0];
-		stops = transfromStops(stops.length);
-		return filter[stops]
+		const { stops } = ticket.segments[0];
+		const stopText = transformStops(stops.length);
+		return filter[stopText]
 	});
 
 	if (loading) {
